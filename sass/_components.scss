@@ -170,8 +170,6 @@
     align-items: center;
   }
 
-  &__link:hover {
-  }
   &__icon {
     width: 1.75rem;
     height: 1.75rem;
@@ -239,8 +237,8 @@
   }
   &__rating {
     background-color: var(--color-primary);
-    margin-left: 3rem;
     color: #fff;
+    margin-left: 3rem;
     padding: 0 2.25rem;
     align-self: stretch;
 
@@ -253,7 +251,7 @@
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
-    margin-bottom: 3px;
+    margin-bottom: -3px;
   }
 
   &__rating-count {
@@ -341,8 +339,8 @@
     margin-right: 0.7rem;
 
     // Older browsers
-    // background-image: url(../img/chevron-thin-right.svg);
-    // background-size: cover;
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
 
     // Never browsers - masks
 
@@ -370,6 +368,7 @@
   }
 
   &__friends {
+    display: flex;
   }
 
   &__photo {
@@ -380,7 +379,7 @@
     border: 3px solid #fff;
 
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -443,5 +442,77 @@
     font-family: sans-serif;
     line-height: 1;
     z-index: 1;
+  }
+}
+
+/////////////////////////////////////////////////////
+///CALL TO ACTION
+.cta {
+  padding: 3.5rem 0;
+  text-align: center;
+
+  &__book-now {
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+}
+
+/////////////////////////////////////////////////////
+///CALL TO ACTION
+.btn {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 100px;
+  border: none;
+  color: #fff;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  & > * {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    transition: all 0.2s;
+  }
+
+  &__visible {
+    padding: 2rem 7.5rem;
+  }
+
+  &__invisible {
+    position: absolute;
+    padding: 2rem 0;
+    left: 0;
+    top: -100%;
+  }
+
+  &:hover {
+    background-image: linear-gradient(
+      to left,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    );
+  }
+
+  &:hover &__visible {
+    transform: translateY(100%);
+  }
+
+  &:hover &__invisible {
+    top: 0;
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
   }
 }
